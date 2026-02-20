@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Naceri | Portfolio 3D</title>
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- CSS Principal -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- LOADING SCREEN -->
+    <div class="loading-screen" id="loading-screen">
+        <div class="loading-content">
+            <!-- Logo animé -->
+            <div class="loading-logo">
+                <i class="fas fa-code"></i>
+            </div>
+            
+            <h1 class="loading-title">DÉVELOPPEMENT</h1>
+            
+            <!-- Barre de progression -->
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+            
+            <div class="loading-status" id="loading-status">
+                <span id="loading-percentage">0%</span>
+                <span id="loading-message">Initialisation...</span>
+            </div>
+            
+            <!-- Points de chargement -->
+            <div class="loading-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT (caché au début) -->
+    <div class="main-content" id="main-content" style="display: none;">
+        <!-- Theme Toggle -->
+        <button class="theme-toggle" id="theme-toggle">
+            <i class="fas fa-moon"></i>
+        </button>
+
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">MOHAMED<span class="logo-dot">.</span></div>
+                <ul class="nav-links">
+                    <li><a href="#accueil" class="active">Accueil</a></li>
+                    <li><a href="#projets">Projets</a></li>
+                    <li><a href="#competences">Compétences</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#" class="cv-btn" onclick="downloadCV()"><i class="fas fa-download"></i> CV</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Section Accueil -->
+        <section id="accueil" class="hero">
+            <canvas id="hero-canvas"></canvas>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <!-- Photo de profil -->
+                    <div class="profile-image">
+                        <img src="img.jpg" alt="Mohamed Naceri" class="profile-img">
+                    </div>
+                    
+                    <h1 class="glitch-text">MOHAMED NACERI</h1>
+                    
+                    <!-- Badge École -->
+                    <div class="school-badge">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>ISTA Ouarzazate - Développement Web</span>
+                    </div>
+                    
+                    <p class="hero-subtitle">
+                        Développeur <span class="typed-text"></span>
+                    </p>
+                    
+                    <p class="hero-bio">
+                        Passionné par le développement web, je crée des applications modernes 
+                        avec React, Laravel et Node.js. Actuellement en formation à l'ISTA Ouarzazate.
+                    </p>
+                    
+                    <!-- Statistiques -->
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="15">0</span>
+                            <span class="stat-label">Projets</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="2">0</span>
+                            <span class="stat-label">Années</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="20">0</span>
+                            <span class="stat-label">Technos</span>
+                        </div>
+                    </div>
+
+                    <!-- Boutons -->
+                    <div class="hero-buttons">
+                        <a href="#projets" class="btn btn-primary">
+                            <i class="fas fa-code"></i> Projets
+                        </a>
+                        <a href="#contact" class="btn btn-outline">
+                            <i class="fas fa-envelope"></i> Contact
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Projets -->
+        <section id="projets" class="projects">
+            <div class="container">
+                <h2 class="section-title">MES <span class="highlight">PROJETS</span></h2>
+                
+                <!-- Filtres -->
+                <div class="filter-container">
+                    <button class="filter-btn active" data-filter="all">Tous</button>
+                    <button class="filter-btn" data-filter="react">React</button>
+                    <button class="filter-btn" data-filter="laravel">Laravel</button>
+                    <button class="filter-btn" data-filter="nodejs">Node.js</button>
+                    <button class="filter-btn" data-filter="html">HTML/CSS</button>
+                </div>
+
+                <!-- Grille des projets -->
+                <div class="projects-grid" id="projects-container"></div>
+            </div>
+        </section>
+
+        <!-- Section Compétences -->
+        <section id="competences" class="skills">
+            <div class="container">
+                <h2 class="section-title">MES <span class="highlight">COMPÉTENCES</span></h2>
+                
+                <div class="skills-grid">
+                    <!-- Frontend -->
+                    <div class="skill-item">
+                        <i class="fab fa-react"></i>
+                        <h3>React</h3>
+                        <div class="skill-level">
+                            <div class="skill-level-bar" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <i class="fab fa-js"></i>
+                        <h3>JavaScript</h3>
+                        <div class="skill-level">
+                            <div class="skill-level-bar" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <i class="fab fa-html5"></i>
+                        <h3>HTML5</h3>
+                        <div class="skill-level">
+                            <div class="skill-level-bar" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <i class="fab fa-css3-alt"></i>
+                        <h3>CSS3</h3>
+                        <div class="skill-level">
+                            <div class="skill-level-bar" style="width: 90%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Backend -->
+                    <div class="skill-item">
+                        <i class="fab fa-php"></i>
+                        <h3>PHP/Laravel</h3>
+                        <div class="skill-level">
+                            <div class="skill-level-bar" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <i class="fab fa-node"></i>
+                        <h3>Node.js</h3>
+                        <div class="skill-level">
+                            <div class="skill-level-bar" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <i class="fas fa-database"></i>
+                        <h3>MySQL</h3>
+                        <div class="skill-level">
+                            <div class="skill-level-bar" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <i class="fab fa-git-alt"></i>
+                        <h3>Git</h3>
+                        <div class="skill-level">
+                            <div class="skill-level-bar" style="width: 90%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Contact -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">CONTACTEZ-<span class="highlight">MOI</span></h2>
+                
+                <div class="contact-content">
+                    <!-- Infos -->
+                    <div class="contact-info">
+                        <div class="info-item">
+                            <i class="fas fa-envelope info-icon"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>naceri.mohamed12@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <i class="fab fa-github info-icon"></i>
+                            <div>
+                                <h4>GitHub</h4>
+                                <p>/nacerimohamed</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <i class="fab fa-linkedin info-icon"></i>
+                            <div>
+                                <h4>LinkedIn</h4>
+                                <p>mohamed Naceri</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt info-icon"></i>
+                            <div>
+                                <h4>École</h4>
+                                <p>ISTA Ouarzazate</p>
+                            </div>
+                        </div>
+                        
+                        <div class="social-links">
+                            <a href="https://github.com/nacerimohamed" class="social-link"><i class="fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/mohamed-naceri-600593394?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="_naceri12_" class="social-link"><i class="fab fa-discord"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Formulaire -->
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder=" " required>
+                            <label for="name">Nom complet</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder=" " required>
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" placeholder=" " required>
+                            <label for="subject">Sujet</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" placeholder=" " rows="5" required></textarea>
+                            <label for="message">Message</label>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <span>Envoyer</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>© 2026 Mohamed Naceri - ISTA Ouarzazate. Tous droits réservés.</p>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
