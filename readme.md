@@ -2,7 +2,17 @@
 
 Portfolio personnel moderne et interactif avec animations 3D, effets visuels avancés et design futuriste.
 
-![Portfolio Preview](https://via.placeholder.com/1000x500/0a0a0a/00ffff?text=Portfolio+3D)
+## 🖥️ Aperçu du site
+
+![Portfolio Preview](Capture.PNG)
+
+## 🖥️ Aperçu du site
+
+![Portfolio Preview](1.PNG)
+
+## 🖥️ Aperçu du site
+
+![Portfolio Preview](Capture2.PNG)
 
 ---
 
