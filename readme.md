@@ -5,19 +5,6 @@ Portfolio personnel moderne et interactif avec animations 3D, effets visuels ava
 https://portfolio-3d-x9la.vercel.app/
 
 
-## 🖥️ Aperçu du site
-
-![Portfolio Preview](Capture.PNG)
-
-## 🖥️ Aperçu du site
-
-![Portfolio Preview](1.PNG)
-
-## 🖥️ Aperçu du site
-
-![Portfolio Preview](Capture2.PNG)
-
----
 
 ## ✨ Fonctionnalités
 
